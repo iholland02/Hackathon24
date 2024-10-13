@@ -23,60 +23,111 @@
     <p class="subheading">
         Level: 100 
     </p>
-<!-- Health Bar Container -->
-<div class="health-bar-container">
-  <!-- Empty Background of the Health Bar -->
-  <div class="empty-rectangle"></div>
-  <!-- Filled Health Bar -->
-  <div class="health-rectangle" id="healthBar"></div>
-</div>
-
-<!-- Happiness Bar Container -->
-<div class="happiness-bar">
-  <div id="progress"></div>
-</div>
-
-<div class="img-btn-container">
-  <!-- Image -->
-  <img src="{{ url_for('static', filename='images/ecobuddy1.png') }}" alt="EcoBuddy Image" id="imageID">
-
-  <!-- Button Container -->
-  <div class="button-container">
-      <!-- Call both functions from one onclick -->
-      <button class="circle-btn" onclick="shakeImage(); increaseHealth();">Feed</button>
-      <button class="circle-btn">Level</button>
-  </div>
-</div>
-
-<!-- JavaScript directly in the HTML -->
-<script>
-  // Initial health bar width in pixels (starting at 150px)
-  let healthWidth = 50;
-
-  // Function to increase the width of the health bar
-  function increaseHealth() {
-      const healthBar = document.getElementById('healthBar');
-      const maxWidth = 300; // Maximum width of the health bar
-
-      // Increase the width by 30px (or any increment you want)
-      if (healthWidth < maxWidth) {
-          healthWidth += 50; // Increment the width
-          healthBar.style.width = healthWidth + 'px'; // Apply the new width
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EcoBuddy</title>
+        <style>
+            /* Add your CSS styles here (optional) */
+        </style>
+    </head>
+    <body>
+    
+    <!-- Health Bar Container -->
+    <div class="health-bar-container">
+      <!-- Empty Background of the Health Bar -->
+      <div class="empty-rectangle"></div>
+      <!-- Filled Health Bar -->
+      <div class="health-rectangle" id="healthBar"></div>
+    </div>
+    
+    <!-- Happiness Bar Container -->
+    <div class="happiness-bar">
+      <div id="progress"></div>
+    </div>
+    
+    <div class="img-btn-container">
+      <button class="circle-btn" onclick="addPoints()">Points</button>
+    
+      <!-- Display for points -->
+      <div class="points-display" id="pointsDisplay">Points: 0</div>
+    
+      <!-- Image -->
+      <img src="{{ url_for('static', filename='images/ecobuddy1.png') }}" alt="EcoBuddy Image" id="imageID">
+    
+      <!-- Button Container -->
+      <div class="button-container">
+          <!-- Use the 'feed' function -->
+          <button class="circle-btn" onclick="feed()">Feed</button>
+          <button class="circle-btn">Level</button>
+      </div>
+    </div>
+    
+    <!-- JavaScript to handle points and health bar functionality -->
+    <script>
+      // Variable to track points
+      let points = 0;
+    
+      // Function to add points
+      function addPoints() {
+          points += 10; // Add 10 points
+          document.getElementById('pointsDisplay').innerText = 'Points: ' + points; // Update the display
       }
-  }
-
-  // Function to shake the image
-  function shakeImage() {
-      const image = document.getElementById('imageID');
-      image.classList.add('shake');
-      setTimeout(() => {
-          image.classList.remove('shake');
-      }, 500);
-  }
-</script>
-
-<!-- Script file inclusion (if needed) -->
-<script src="index.js"></script>
-
-</body>
-</html>
+    
+      // Function to subtract points but prevent negative values
+      function subtractPoints() {
+          if (points >= 5) { // Only subtract if points are 5 or more
+              points -= 5; // Subtract 5 points
+              document.getElementById('pointsDisplay').innerText = 'Points: ' + points; // Update the display
+          } else {
+              console.log('Not enough points to subtract');
+          }
+      }
+    </script>
+    
+    <script>
+      // Initial health bar width in pixels (starting at 50px)
+      let healthWidth = 50;
+      const maxWidth = 300; // Maximum width of the health bar
+    
+      // Function to increase the width of the health bar
+      function increaseHealth() {
+          const healthBar = document.getElementById('healthBar');
+    
+          // Only increase if healthWidth is less than maxWidth
+          if (healthWidth < maxWidth) {
+              healthWidth += 50; // Increment the width
+              healthBar.style.width = healthWidth + 'px'; // Apply the new width
+          } else {
+              console.log('Health is already at maximum!');
+          }
+      }
+    
+      // Function to shake the image
+      function shakeImage() {
+          const image = document.getElementById('imageID');
+          image.classList.add('shake');
+          setTimeout(() => {
+              image.classList.remove('shake');
+          }, 500);
+      }
+    
+      // Function to handle feeding, only works if points are enough and health is not maxed out
+      function feed() {
+          if (healthWidth < maxWidth && points >= 5) {
+              shakeImage();
+              increaseHealth();
+              subtractPoints(); // Subtract points after feeding
+          } else if (healthWidth >= maxWidth) {
+              console.log('Cannot feed, health is at max.');
+          } else {
+              console.log('Not enough points to feed.');
+          }
+      }
+    </script>
+    
+    </body>
+    </html>
+    
