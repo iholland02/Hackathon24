@@ -55,7 +55,7 @@
       <div class="button-container">
         <!-- Call the 'feed' function -->
         <button class="circle-btn" onclick="feed()">Feed</button>
-        <button class="circle-btn">Level</button>
+        <button class="circle-btn" onclick="jumpImage()">Play</button>
       </div>
     </div>
 <!-- Timer Display -->
@@ -159,6 +159,16 @@ function updateTimer() {
             image.classList.remove('shake');
         }, 500);
     }
+
+   // Function to jump the image
+function jumpImage() {
+    const image = document.getElementById('imageID');
+    image.classList.add('jump');
+    setTimeout(() => {
+        image.classList.remove('jump');
+    }, 500); // Match the animation duration (0.5s)
+}
+
 
     // Function to handle feeding, only works if points are enough and health is not maxed out
     function feed() {

@@ -94,6 +94,18 @@ h1 {
     animation: shake 0.5s;
 }
 
+/* Define the jump animation for vertical movement */
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-20px); } /* Move up by 20px */
+    50% { transform: translateY(-30px); } /* Peak of the jump */
+    75% { transform: translateY(-20px); } /* Coming back down */
+}
+
+.jump {
+    animation: jump 0.5s ease-in-out; /* Animation duration of 0.5s */
+}
+
 /* Health bar container with relative positioning */
 .health-bar-container {
     position: relative;
