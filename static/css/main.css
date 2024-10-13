@@ -97,9 +97,27 @@ h1 {
     animation: shake 0.5s;
 }
 
-.rectangle {
-    width: 300px;  /* Width of the rectangle */
-    height: 30px; /* Height of the rectangle */
-    background-color: #5fa957; /* Background color of the rectangle */
-    border: 2px solid #000; /* Optional: border for the rectangle */
+/* Health bar container with relative positioning */
+.health-bar-container {
+    position: relative;
+    width: 300px; /* Total width of the health bar */
+    height: 30px; /* Height of the health bar */
+}
+
+/* Empty background of the health bar */
+.empty-rectangle {
+    position: absolute; /* Position it absolutely within the container */
+    width: 100%;  /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    background-color: #5fa957; /* Green background */
+    border: 2px solid #000; /* Border */
+}
+
+/* Filled health bar */
+.health-rectangle {
+    position: absolute; /* Position it on top of the empty bar */
+    width: 150px;  /* Initial width (can represent the health) */
+    height: 100%; /* Full height of the container */
+    background-color: #a95757; /* Red background */
+    border: 2px solid #000; /* Border */
 }
