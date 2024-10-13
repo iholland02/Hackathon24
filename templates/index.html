@@ -7,8 +7,24 @@
   <title>EcoBuddy</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   <style>
-    /* Add your CSS styles here (if not using an external stylesheet) */
+    body{
+      background-image: url('static/images/bgtest'); /* Replace with your actual image file */
+      background-size: cover; /* Ensures the image covers the entire background */
+      background-position: center; /* Centers the background image */
+      /* Prevents the image from repeating */
+      height: 100vh; /* Ensures the background covers the full viewport height */
+      margin: 0;
+      padding: 0;
+    }
+    #font-setting{
+      color:brown;
+      font-weight:900;
+      font-family:'Caveat',cursive;
+    }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 </head>
 
 <body style="background-color: rgb(190, 226, 190);">
@@ -37,7 +53,7 @@
     <div class="happiness-bar">
       <div id="progress"></div>
     </div>
-
+ <!-- id="font-setting" -->
     <div class="img-btn-container">
       <div class="left-btn-container">
         <button class="oval-btn" onclick="addPoints()">Recycle an Item</button>
