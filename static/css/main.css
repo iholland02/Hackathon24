@@ -100,7 +100,7 @@ h1 {
 /* Health bar container with relative positioning */
 .health-bar-container {
     position: relative;
-    width: 300px; /* Total width of the health bar */
+    width: 300px; /* Max width of the health bar */
     height: 30px; /* Height of the health bar */
 }
 
@@ -116,7 +116,7 @@ h1 {
 /* Filled health bar */
 .health-rectangle {
     position: absolute; /* Position it on top of the empty bar */
-    width: 150px;  /* Initial width (can represent the health) */
+    width: 50px;  /* Initial width (can represent the current health) */
     height: 100%; /* Full height of the container */
     background-color: #a95757; /* Red background */
     border: 2px solid #000; /* Border */

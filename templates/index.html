@@ -23,48 +23,60 @@
     <p class="subheading">
         Level: 100 
     </p>
-  <!-- Health Bar Container -->
+<!-- Health Bar Container -->
 <div class="health-bar-container">
   <!-- Empty Background of the Health Bar -->
   <div class="empty-rectangle"></div>
   <!-- Filled Health Bar -->
-  <div class="health-rectangle"></div>
+  <div class="health-rectangle" id="healthBar"></div>
 </div>
 
-    </h1>
-        <!-- Happiness Bar Container -->
-        <div class="happiness-bar">
-            <div id="progress"></div>
-        </div>
+<!-- Happiness Bar Container -->
+<div class="happiness-bar">
+  <div id="progress"></div>
+</div>
 
-        <div class="img-btn-container">
-          <!-- Image -->
-          <img src="{{ url_for('static', filename='images/ecobuddy1.png') }}" alt="EcoBuddy Image" id="imageID">
-          
-          <!-- Button Container -->
-          <div class="button-container">
-            <button class="circle-btn" onclick="shakeImage()">Feed</button>
-            <button class="circle-btn">Level</button>
-        
-        
-        <!-- Span with the same class as the button -->
-       
-      </div>
-        <script>
-            function shakeImage() {
-                const image = document.getElementById('imageID');
-                image.classList.add('shake');
-                setTimeout(() => {
-                    image.classList.remove('shake');
-                }, 500);
-            }
-        </script>
-        
-      </div>
+<div class="img-btn-container">
+  <!-- Image -->
+  <img src="{{ url_for('static', filename='images/ecobuddy1.png') }}" alt="EcoBuddy Image" id="imageID">
 
-      
-      <!-- Script file inclusion -->
-      <script src="index.js"></script>
-      </body>
-      </html>
-      
+  <!-- Button Container -->
+  <div class="button-container">
+      <!-- Call both functions from one onclick -->
+      <button class="circle-btn" onclick="shakeImage(); increaseHealth();">Feed</button>
+      <button class="circle-btn">Level</button>
+  </div>
+</div>
+
+<!-- JavaScript directly in the HTML -->
+<script>
+  // Initial health bar width in pixels (starting at 150px)
+  let healthWidth = 50;
+
+  // Function to increase the width of the health bar
+  function increaseHealth() {
+      const healthBar = document.getElementById('healthBar');
+      const maxWidth = 300; // Maximum width of the health bar
+
+      // Increase the width by 30px (or any increment you want)
+      if (healthWidth < maxWidth) {
+          healthWidth += 50; // Increment the width
+          healthBar.style.width = healthWidth + 'px'; // Apply the new width
+      }
+  }
+
+  // Function to shake the image
+  function shakeImage() {
+      const image = document.getElementById('imageID');
+      image.classList.add('shake');
+      setTimeout(() => {
+          image.classList.remove('shake');
+      }, 500);
+  }
+</script>
+
+<!-- Script file inclusion (if needed) -->
+<script src="index.js"></script>
+
+</body>
+</html>
