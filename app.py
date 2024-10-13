@@ -27,7 +27,7 @@ def index():
 
 @app.route('/daily_activities')
 def daily_activities():
-    return render_template(daily_activities.html)
+    return render_template('daily_activities.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
