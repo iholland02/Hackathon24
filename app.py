@@ -29,5 +29,22 @@ def index():
 def daily_activities():
     return render_template('daily_activities.html')
 
+@app.route('/death')
+def death():
+    # Optionally, clear the session or perform other cleanup
+    session.clear()
+    return render_template('death.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+@app.route('/input', methods=['POST'])
+def input():
+    if request.method == 'POST':
+        # Retrieve the ECOBUDDY NAME from the form
+        quest = request.form['question']
+        # Store it in the session
+        session['question'] = quest
+        # Redirect to the index page
+        return redirect(url_for('index'))
+    
