@@ -50,9 +50,10 @@ h1 {
 }
 
 .oval-btn {
-    width: 100px;
-    height: 50px;
+    width: 110px;
+    height: 70px;
     border-radius: 50%;
+    font-size: 20px;
 }
 
 .circle-btn {

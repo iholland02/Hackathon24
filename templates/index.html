@@ -17,9 +17,7 @@
     <p class="subheading">
       Make your buddy happy by entering your daily tasks
     </p>
-    <br>
-    <button class="oval-btn"><a href="{{('daily_activities')}}">Daily Activities</a></button>
-    <br>
+
     <p class="subheading">
       <b>{{ ecobuddy_name }}</b>
     </p>
@@ -42,7 +40,10 @@
 
     <div class="img-btn-container">
       <div class="left-btn-container">
-        <button class="circle-btn" onclick="addPoints()">Points</button>
+        <button class="oval-btn" onclick="addPoints()">Recycle an Item</button>
+        <button class="oval-btn" onclick="addPoints()">Water Your Plant</button>
+        <button class="oval-btn" onclick="addPoints()">Take The Train</button>
+        <button class="oval-btn" onclick="addPoints()">Carpool</button>
         <!-- Display for points -->
         <div class="points-display" id="pointsDisplay">Points: 0</div>
       </div>
