@@ -29,7 +29,77 @@ h1 {
 .action {
     margin: 10px;
 }
-  
-button {
+
+
+.button-container {
+    display: flex;
+    flex-direction: column; /*stack vertically*/
+    gap: 20px;
+}
+
+.oval-btn{
+    width: 100px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #5fa957;
+    color: rgb(0, 0, 0);
+    border: none;
+    font-size: 18px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.img-btn-container{
+    display: flex;
+            justify-content: flex-start; /* Align items to the left */
+            align-items: center; /* Vertically align items */
+            gap: 20px; /* Add space between image and buttons */
+            padding: 20px;
+}
+
+.circle-btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #5fa957;
+    color: rgb(0, 0, 0);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+.oval-btn {
+    width: 100px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+    background-color: #4d8745; /* Slightly darker green */
+}
+
+/* Define the shake animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+.rectangle {
+    width: 300px;  /* Width of the rectangle */
+    height: 30px; /* Height of the rectangle */
+    background-color: #5fa957; /* Background color of the rectangle */
+    border: 2px solid #000; /* Optional: border for the rectangle */
 }
