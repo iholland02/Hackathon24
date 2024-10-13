@@ -1,8 +1,5 @@
 from flask import Flask, render_template, url_for, request, session, redirect
 
-
-from flask import Flask, render_template, request, redirect, url_for, session
-
 app = Flask(__name__)
 app.secret_key = 'ecobuddykey'
 
@@ -29,10 +26,6 @@ def index():
 
 @app.route('/death')
 def death():
-    return render_template('death.html')
-
-@app.route('/death')
-def death():
     # Optionally, clear the session or perform other cleanup
     session.clear()
     return render_template('death.html')
@@ -49,5 +42,3 @@ def input():
         session['question'] = quest
         # Redirect to the index page
         return redirect(url_for('index'))
-    
->>>>>>> 7479c929ca16f5a16bb49e7fae4be8fba5a84430
