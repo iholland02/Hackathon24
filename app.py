@@ -26,7 +26,8 @@ def index():
     return render_template('index.html', ecobuddy_name=ecobuddy_name)
 
 @app.route('/daily_activities')
-   return render_template(daily_activities.html)
+def daily_activities():
+    return render_template(daily_activities.html)
 
 if __name__ == "__main__":
     app.run(debug=True)
