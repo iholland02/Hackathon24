@@ -25,8 +25,8 @@ def index():
     ecobuddy_name = session.get('ecobuddy_name', 'Your EcoBuddy')
     return render_template('index.html', ecobuddy_name=ecobuddy_name)
 
-#@app.route('/daily_activities')
-#    return render_template(daily_activities.html)
+@app.route('/daily_activities')
+   return render_template(daily_activities.html)
 
 if __name__ == "__main__":
     app.run(debug=True)
