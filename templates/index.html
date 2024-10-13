@@ -69,7 +69,19 @@
     // Set the starting time in seconds (e.g., 60 seconds = 1 minute)
 let timeLeft = 10;
 const initialTime = 10; // Save the initial time to reset it
-
+// Function to change the image when levels go up by 5
+function changeImage() {
+    const image = document.getElementById('imageID');
+    //NEED TO FIGURE OUT HOW TO CHANGE TO DIFF PIC AT LVL 5!!!!!!!!!!!!!!!!!!!!!!
+    // Here you can add conditions to change the image based on the level
+    if (level === 5) {
+      image.src = "{{ url_for('static', filename='images/phase2.png') }}"; // Replace with your image path
+    // } else if (level === 10) {
+    //     image.src = 'path_to_new_image_10.png'; // Replace with another image path
+    // } else if (level === 15) {
+    //     image.src = 'path_to_new_image_15.png'; // Continue for higher levels
+    }
+}
 // Function to format time as MM:SS
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
@@ -132,6 +144,9 @@ function updateTimer() {
             healthBar.style.width = healthWidth + 'px'; // Apply the new width
             if (level<50){
               level += 1;
+              if (level % 5 === 0) {
+                changeImage();
+              }
               document.getElementById('levelDisplay').innerText = 'Level: ' + level; // Update the display
             }
         } else {
@@ -150,6 +165,7 @@ function updateTimer() {
             console.log('Health decreased by 25px. Current health: ' + healthWidth);
         } else {
             console.log('Health is already at the minimum!');
+            window.location.href = 'death.html';
         }
     }
 
