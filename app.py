@@ -1,12 +1,14 @@
 from flask import Flask, render_template, url_for, request, session, redirect
 
 
-app = Flask (__name__)
+from flask import Flask, render_template, request, redirect, url_for, session
+
+app = Flask(__name__)
 app.secret_key = 'ecobuddykey'
 
 @app.route('/')
 def login():
-   return render_template('login.html')
+    return render_template('login.html')
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -25,9 +27,9 @@ def index():
     ecobuddy_name = session.get('ecobuddy_name', 'Your EcoBuddy')
     return render_template('index.html', ecobuddy_name=ecobuddy_name)
 
-@app.route('/daily_activities')
-def daily_activities():
-    return render_template('daily_activities.html')
+@app.route('/death')
+def death():
+    return render_template('death.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
