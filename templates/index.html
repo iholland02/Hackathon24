@@ -89,11 +89,11 @@ function changeImage() {
     // Here you can add conditions to change the image based on the level
     if (level === 5) {
       image.src = "{{ url_for('static', filename='images/phase2.png') }}"; // Replace with your image path
-    // } else if (level === 10) {
-    //     image.src = 'path_to_new_image_10.png'; // Replace with another image path
-    // } else if (level === 15) {
+     } else if (level === 10) {
+         image.src = "{{ url_for('static', filename='images/phase3.png') }}"; // Replace with your image path
+     } //else if (level === 15) {
     //     image.src = 'path_to_new_image_15.png'; // Continue for higher levels
-    }
+    //}
 }
 // Function to format time as MM:SS
 function formatTime(seconds) {
