@@ -22,7 +22,7 @@
       <b>{{ ecobuddy_name }}</b>
     </p>
     <p class="subheading">
-      Level: 100
+      <div class="level-display" id="levelDisplay">Level: 0</div>
     </p>
 
     <!-- Health Bar Container -->
@@ -120,6 +120,7 @@ function updateTimer() {
     let healthWidth = 50;
     const maxWidth = 300; // Maximum width of the health bar
     const minWidth = 0; // Minimum width of the health bar
+    let level = 0;
 
     // Function to increase the width of the health bar
     function increaseHealth() {
@@ -129,6 +130,8 @@ function updateTimer() {
         if (healthWidth < maxWidth) {
             healthWidth += 50; // Increment the width
             healthBar.style.width = healthWidth + 'px'; // Apply the new width
+            level += 1;
+            document.getElementById('levelDisplay').innerText = 'Level: ' + level; // Update the display
         } else {
             console.log('Health is already at maximum!');
         }
