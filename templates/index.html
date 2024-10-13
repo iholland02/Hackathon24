@@ -82,8 +82,8 @@
 
 <script>
     // Set the starting time in seconds (e.g., 60 seconds = 1 minute)
-let timeLeft = 10;
-const initialTime = 10; // Save the initial time to reset it
+let timeLeft = 5;
+const initialTime = 5; // Save the initial time to reset it
 // Function to change the image when levels go up by 5
 function changeImage() {
     const image = document.getElementById('imageID');
@@ -101,7 +101,7 @@ function changeImage() {
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const sec = seconds % 60;
-    return `${minutes}:${sec < 10 ? '0' : ''}${sec}`; // Properly formats seconds under 10
+    return `${minutes}:${sec < 5 ? '0' : ''}${sec}`; // Properly formats seconds under 10
 }
 
 // Function to update the timer display every second
