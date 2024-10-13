@@ -130,8 +130,10 @@ function updateTimer() {
         if (healthWidth < maxWidth) {
             healthWidth += 50; // Increment the width
             healthBar.style.width = healthWidth + 'px'; // Apply the new width
-            level += 1;
-            document.getElementById('levelDisplay').innerText = 'Level: ' + level; // Update the display
+            if (level<50){
+              level += 1;
+              document.getElementById('levelDisplay').innerText = 'Level: ' + level; // Update the display
+            }
         } else {
             console.log('Health is already at maximum!');
         }
