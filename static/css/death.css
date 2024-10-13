@@ -1,0 +1,19 @@
+.page {
+  display: block;
+  background-image: url("../images/dark-plant.jpg");
+  align-content: center;
+  background-size: cover;
+  height: 490px;
+}
+.container {
+  opacity: 0.75;
+  display: block;
+  background-color: rgb(201, 208, 208);
+  color: black;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+}
