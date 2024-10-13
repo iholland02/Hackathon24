@@ -49,7 +49,7 @@
       </div>
 
       <!-- Image -->
-      <img src="{{ url_for('static', filename='images/ecobuddy1.png') }}" alt="EcoBuddy Image" id="imageID">
+      <img src="{{ url_for('static', filename='images/phase1.png') }}" alt="EcoBuddy Image" id="imageID" style="width: 600px; height: 400px;">
 
       <!-- Button Container -->
       <div class="button-container">
@@ -130,8 +130,10 @@ function updateTimer() {
         if (healthWidth < maxWidth) {
             healthWidth += 50; // Increment the width
             healthBar.style.width = healthWidth + 'px'; // Apply the new width
-            level += 1;
-            document.getElementById('levelDisplay').innerText = 'Level: ' + level; // Update the display
+            if (level<50){
+              level += 1;
+              document.getElementById('levelDisplay').innerText = 'Level: ' + level; // Update the display
+            }
         } else {
             console.log('Health is already at maximum!');
         }
@@ -161,13 +163,13 @@ function updateTimer() {
     }
 
    // Function to jump the image
-function jumpImage() {
+    function jumpImage() {
     const image = document.getElementById('imageID');
     image.classList.add('jump');
     setTimeout(() => {
         image.classList.remove('jump');
     }, 500); // Match the animation duration (0.5s)
-}
+  }
 
 
     // Function to handle feeding, only works if points are enough and health is not maxed out
