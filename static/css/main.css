@@ -42,7 +42,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #5fa957;
+    background-color: #97ce91;
     color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
@@ -64,7 +64,7 @@ h1 {
 }
 
 .circle-btn:hover, .oval-btn:hover {
-    background-color: #4d8745; /* Slightly darker green */
+    background-color: #7ebd75; /* Slightly darker green */
 }
 
 .left-btn-container {
@@ -118,7 +118,7 @@ h1 {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #5fa957; /* Green background */
+    background-color: #da5757; /* Red background */
     border: 2px solid #000;
 }
 
@@ -127,7 +127,7 @@ h1 {
     position: absolute;
     width: 50px;  /* Initial width for health */
     height: 100%;
-    background-color: #a95757; /* Red background */
+    background-color: #97ce91;
     border: 2px solid #000;
 }
 
@@ -135,3 +135,4 @@ h1 {
     font-size: 20px;
     margin-top: 20px;
 }
+
